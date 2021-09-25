@@ -33,7 +33,7 @@ function setup() {
   World.add(world, playerBase);
 
   //player = Bodies.rectangle(250, playerBase.position.y - 160, 50, 180, options);
-  player = new PlayerArcher(250, playerBase.position.y - 160, 50, 180, options);
+  player = new PlayerArcher(280, playerBase.position.y - 160, 50, 180, options);
   World.add(world, player);
 }
 
