@@ -22,7 +22,8 @@ function setup() {
   world = engine.world;
 
   angleMode(DEGREES);
-  rectMode(CENTER)
+  rectMode(CENTER);
+  imageMode(CENTER);
 
   var options = {
     isStatic: true
