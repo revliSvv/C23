@@ -5,7 +5,7 @@ const Constraint = Matter.Constraint;
 
 var engine, world;
 var canvas;
-var player, playerBase;
+var player, playerBase, playerArcher, arrow;
 
 
 
@@ -32,9 +32,11 @@ function setup() {
   playerBase = Bodies.rectangle(200, 350, 180, 150, options);
   World.add(world, playerBase);
 
-  //player = Bodies.rectangle(250, playerBase.position.y - 160, 50, 180, options);
-  player = new PlayerArcher(280, playerBase.position.y - 160, 50, 180, options);
+  player = Bodies.rectangle(250, playerBase.position.y - 160, 50, 180, options);
   World.add(world, player);
+
+  playerArcher = new PlayerArcher(340, playerBase.position.y - 112, 120, 120, options);
+  arrow = new PlayerArrow(playerArcher.body.position.x, playerArcher.body.position.y, 100, 10);
 }
 
 function draw() {
@@ -42,7 +44,7 @@ function draw() {
 
   Engine.update(engine);
   image(baseimage, playerBase.position.x, playerBase.position.y, 180, 150)
-  image(playerimage, player.body.position.x, player.body.position.y, 50, 180)
+  image(playerimage, player.position.x, player.position.y, 50, 180)
 
   // Title
   fill("#FFFF");
@@ -50,8 +52,8 @@ function draw() {
   textSize(40);
   text("EPIC ARCHERY", width / 2, 100);
 
-  player.display();
-  
+  playerArcher.display();
+  arrow.display();
 }
 
 
